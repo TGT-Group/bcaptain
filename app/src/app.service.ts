@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 
 @Injectable()
-export class AppService {
-  getHello(): string {
-    return 'Hello World!';
-  }
+export class AppService implements OnModuleInit {
+  private readonly logger = new Logger(AppService.name);
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onModuleInit() {}
 }

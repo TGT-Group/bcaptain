@@ -38,6 +38,9 @@ $ npm run typeorm migration:create -- -n InitialDev -d src/migrations
 
 # Create a new migration from existing schema
 $ npm run typeorm migration:generate -- -n UserImpl -d src/migrations
+
+# Run migration
+npm run typeorm migration:run
 ```
 
 

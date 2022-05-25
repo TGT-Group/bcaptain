@@ -18,7 +18,8 @@ export class UsersService {
   async create(createUserDto: CreateUserDto): Promise<boolean> {
     let insertResult = await this.usersRepository.insert({
         firstName: createUserDto.firstName,
-        lastName: createUserDto.lastName
+        lastName: createUserDto.lastName,
+        email: createUserDto.email
     });
 
     return true;

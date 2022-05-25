@@ -1,9 +1,17 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'Users' })
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column({
+    type: 'text',
+    nullable: false,
+    unique: true,
+    generated: 'uuid',
+  })
+  code!: string;
 
   @Column()
   firstName: string;
@@ -17,9 +25,9 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ type: 'timestamptz', default: () => "CURRENT_TIMESTAMP" })
+  @Column({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   creationDate: Date;
 
-  @Column({ type: 'timestamptz', default: () => "CURRENT_TIMESTAMP" })
+  @Column({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   lastUpdateDate: Date;
 }
